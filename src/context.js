@@ -1,10 +1,8 @@
-import  React  from 'react';
+import React from "react";
 
- const MyContext = React.createContext({
-     state: {},
-     setState: () => {
+const MyContext = React.createContext({
+  state: {},
+  setState: () => {},
+});
 
-     }
- });
-
- export default MyContext;
+export default MyContext;

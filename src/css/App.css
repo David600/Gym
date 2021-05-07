@@ -1,349 +1,334 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Rye|Shojumaru|Skranji|Tangerine|Unna&display=swap');
-*{
-margin: 0;
-padding: 0;
-outline: none;
+@import url("https://fonts.googleapis.com/css?family=Bangers|Rye|Shojumaru|Skranji|Tangerine|Unna&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
 }
 
-
-html, body{
-width: 100%;
-height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
-body{
-background-color:#934B4B;
-font-family: Arial, Helvetica, sans-serif;
+body {
+  background-color: #934b4b;
+  font-family: Arial, Helvetica, sans-serif;
 }
-header{
-width: 100%;
-padding: 10px 0.5% 0px 0.5%;
-background: transparent;
-float: left;
-position: fixed;
-
+header {
+  width: 100%;
+  padding: 10px 0.5% 0px 0.5%;
+  background: transparent;
+  float: left;
+  position: fixed;
 }
-header #logo{
-color: #fff;
-cursor: pointer;
+header #logo {
+  color: #fff;
+  cursor: pointer;
 }
-header #logo span{
-font-family: 'Skranji', cursive;
-font-size: 5em;
-line-height: 45px;
-margin-left: 40px; 
+header #logo span {
+  font-family: "Skranji", cursive;
+  font-size: 5em;
+  line-height: 45px;
+  margin-left: 40px;
 }
-@media (min-width: 701px){
-#logo{
+@media (min-width: 701px) {
+  #logo {
     float: left;
     font-size: 1.1em;
     width: 30%;
-
-    }
+  }
 }
 
-@media (max-width: 700px){
-    #logo{
-        margin-top: 15px;
-        font-size: 1.5em;
-        width: 100%;
-    }
-    #about{
-        float: left;
-        width: 100%;
-
-    }
-}
-#about{
-    text-align: center;
-    font-size: 1em;
-    line-height: 55px;
-    margin-bottom: 10px;
-
-}
-#about span > a{
-color: #fff;
-}
-
-#about span > a:hover{
-color:#B59B9B; 
-text-decoration: underline;
-}
-
-#about span > a  {
-margin-right: 8%;
-}
-
-.fixed{
-    z-index: 5000;
-    background-color: #ffecec;
-    border-bottom: 1px solid silver;
-}
-header.fixed #logo{
-    color: black;
-}
-.fixed #about span > a{
-color: black;
-line-height: 55px;
-
-}
-.fixed #about span > a:hover{
-    color: #A14646;
-}
-#backgroundMain{
+@media (max-width: 700px) {
+  #logo {
+    margin-top: 15px;
+    font-size: 1.5em;
     width: 100%;
-    height: 1000px;
-    background-image: url(images/6-Reasons-You-Should-Never-Open-a-Gym.jpeg);
-    background-blend-mode: multiply;
-    background-color: #675353;
-    background-size: cover;
-    font-size: 3em;
-    text-align: center;
-    
+  }
+  #about {
+    float: left;
+    width: 100%;
+  }
 }
-#backgroundMain h1{
-padding-top: 20%;
-color: #fff;
+#about {
+  text-align: center;
+  font-size: 1em;
+  line-height: 55px;
+  margin-bottom: 10px;
+}
+#about span > a {
+  color: #fff;
+}
 
+#about span > a:hover {
+  color: #b59b9b;
+  text-decoration: underline;
 }
-#main{
-padding: 80px 20%;
-width: 60%;
-float: left;
-background-color:  #ffecec;
-border-top: 2px solid silver;
-border-bottom: 2px solid silver;
-color: #4A4646;
-font-size: 1.1em;
+
+#about span > a {
+  margin-right: 8%;
+}
+
+.fixed {
+  z-index: 5000;
+  background-color: #ffecec;
+  border-bottom: 1px solid silver;
+}
+header.fixed #logo {
+  color: black;
+}
+.fixed #about span > a {
+  color: black;
+  line-height: 55px;
+}
+.fixed #about span > a:hover {
+  color: #a14646;
+}
+#backgroundMain {
+  width: 100%;
+  height: 1000px;
+  background-image: url(images/6-Reasons-You-Should-Never-Open-a-Gym.jpeg);
+  background-blend-mode: multiply;
+  background-color: #675353;
+  background-size: cover;
+  font-size: 3em;
+  text-align: center;
+}
+#backgroundMain h1 {
+  padding-top: 20%;
+  color: #fff;
+}
+#main {
+  padding: 80px 20%;
+  width: 60%;
+  float: left;
+  background-color: #ffecec;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+  color: #4a4646;
+  font-size: 1.1em;
 }
 #main div {
-    float: left;
-    width: 48%;
-    margin-right: 2%;
+  float: left;
+  width: 48%;
+  margin-right: 2%;
 }
-#main h2{
-font-size: 3em;
-
+#main h2 {
+  font-size: 3em;
 }
-#main span{
-color: #737373;
-
+#main span {
+  color: #737373;
 }
-#overviev{
-background-image: url(images/sparta.jpeg);
-background-blend-mode: multiply;
-background-color:#312727;
-background-size: cover;
-background-attachment: fixed;
-height: 1000px;
+#overviev {
+  background-image: url(images/sparta.jpeg);
+  background-blend-mode: multiply;
+  background-color: #312727;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 1000px;
 
-padding: 100px;
-text-align: center;
-color: #ffecec;
-font-size: 1.5em;
-
+  padding: 100px;
+  text-align: center;
+  color: #ffecec;
+  font-size: 1.5em;
 }
-#overviev .img img{
-    height: 250px;
-    width: 350px;
-    border: 4px solid #fff;
-
+#overviev .img img {
+  height: 250px;
+  width: 350px;
+  border: 4px solid #fff;
 }
-#overviev h2{
-    font-size: 2em;
+#overviev h2 {
+  font-size: 2em;
 }
 
 #overviev .img {
-    float: left;
-    width: 30%;
-    margin-right: 20%;
-    margin-top: 50px;
-    cursor: pointer;
-    max-width: 500px;
-
+  float: left;
+  width: 30%;
+  margin-right: 20%;
+  margin-top: 50px;
+  cursor: pointer;
+  max-width: 500px;
 }
-#overviev .img :nth-child(odd){
-    margin-left: 30%;
-}
-
-#overviev .img span{
-    margin-top: 10px;
-    float: left;
-    width: 100%;   
-    font-size: 1.5em; 
-    margin-left: 20%;
+#overviev .img :nth-child(odd) {
+  margin-left: 30%;
 }
 
-#contacts{
-float: left;
-width: 100%;
-padding-bottom: 50px;
-padding-top: 70px;
-border-top: 4px solid silver;
-background-color: #ffecec ;
-
-}
-#contacts h3{
-    color: #4A4646;
-    font-size: 2em;
+#overviev .img span {
+  margin-top: 10px;
+  float: left;
+  width: 100%;
+  font-size: 1.5em;
+  margin-left: 20%;
 }
 
-#form_input{
-    margin-top: 15px;
-    width: 35%;
-    margin-left: 38%;
-    font-size: 1em;
+#contacts {
+  float: left;
+  width: 100%;
+  padding-bottom: 50px;
+  padding-top: 70px;
+  border-top: 4px solid silver;
+  background-color: #ffecec;
 }
-#form_input label{
-    font-size: 1.3em;
-    color: #4A4646;
-    cursor: pointer;
-}
-#form_input label span{
-    color: rgb(224, 30, 30);
-
-}
-#form_input input, #form_input textarea{
-    margin-bottom: 10px;
-    width: 70%;
-    padding: 10px 2%;
-    border-radius: 7px;
-    border: 2px solid silver;
-    font-size: 0.9em;
-}
-#form_input input:focus, #form_input textarea:focus{
-border-color: black;
-}
-  #btn{
-float: left;
-border-radius: 5px !important ; 
-padding: 5px 9px;
-font-size: 1.2em;
-background-color:#fff;
-cursor: pointer;
-}
-#btn:hover{
-    background-color: #b19797;
+#contacts h3 {
+  color: #4a4646;
+  font-size: 2em;
 }
 
-#FAQ{
-width: 100%;
-float: left;
-background-color: #fff;
-border-top: 2px solid silver;
-padding-top: 50px;
-padding-bottom: 70px;
+#form_input {
+  margin-top: 15px;
+  width: 35%;
+  margin-left: 38%;
+  font-size: 1em;
+}
+#form_input label {
+  font-size: 1.3em;
+  color: #4a4646;
+  cursor: pointer;
+}
+#form_input label span {
+  color: rgb(224, 30, 30);
+}
+#form_input input,
+#form_input textarea {
+  margin-bottom: 10px;
+  width: 70%;
+  padding: 10px 2%;
+  border-radius: 7px;
+  border: 2px solid silver;
+  font-size: 0.9em;
+}
+#form_input input:focus,
+#form_input textarea:focus {
+  border-color: black;
+}
+#btn {
+  float: left;
+  border-radius: 5px !important ;
+  padding: 5px 9px;
+  font-size: 1.2em;
+  background-color: #fff;
+  cursor: pointer;
+}
+#btn:hover {
+  background-color: #b19797;
+}
 
+#FAQ {
+  width: 100%;
+  float: left;
+  background-color: #fff;
+  border-top: 2px solid silver;
+  padding-top: 50px;
+  padding-bottom: 70px;
 }
-#FAQ div{
-    float: left;
-    width: 25%;
-    margin-left: 6%;
+#FAQ div {
+  float: left;
+  width: 25%;
+  margin-left: 6%;
 }
 
-#FAQ #title{
-    font-weight: lighter;
-    color: rgb(131, 131, 131);
-    margin-bottom: 20px;
-    font-size: 2em;
+#FAQ #title {
+  font-weight: lighter;
+  color: rgb(131, 131, 131);
+  margin-bottom: 20px;
+  font-size: 2em;
 }
-#FAQ .heading{
-    color: #4A4646;
-    font-size: 1.3em;
-    font-weight: bold;
+#FAQ .heading {
+  color: #4a4646;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: .25em .75em;
-    text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25em 0.75em;
+  text-align: center;
 }
 
 select {
-    padding: .25em .5em;
+  padding: 0.25em 0.5em;
 }
-button, select {
-    height: 2em;
-    font-size: 1rem;
-    background-color: #fff;
-    color: #363636;
-    cursor: pointer;
+button,
+select {
+  height: 2em;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #363636;
+  cursor: pointer;
 }
 .calendar header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .calendar header button,
 .calendar header select {
-    margin: 0 4px;
+  margin: 0 4px;
 }
 
 .calendar table {
-    table-layout: fixed;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: auto;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: auto;
 }
 
 .calendar th {
-    vertical-align: middle;
-    text-align: center;
-    height: 36px;
+  vertical-align: middle;
+  text-align: center;
+  height: 36px;
 }
 
 .calendar .day {
-    padding: 4px 8px;
-    vertical-align: middle;
-    text-align: center;
-    border: 2px solid transparent;
+  padding: 4px 8px;
+  vertical-align: middle;
+  text-align: center;
+  border: 2px solid transparent;
 }
 
 .calendar .day:hover {
-    background-color: #eaeaea;
-    cursor: pointer;
+  background-color: #eaeaea;
+  cursor: pointer;
 }
 
 .calendar .day.selected {
-    border: 2px solid dodgerblue;
+  border: 2px solid dodgerblue;
 }
 
 .calendar .day.today {
-    background-color: dodgerblue;
-    color: white;
+  background-color: dodgerblue;
+  color: white;
 }
 
 .calendar .day.today:hover {
-    background-color: #0081ff;
+  background-color: #0081ff;
 }
 
 .calendar .day.today.selected {
-    border: 2px solid lightgray;
+  border: 2px solid lightgray;
 }
 
 #reg-successful {
-padding: 80px 20%;
-width: 60%;
-background-color:  #ffecec;
-border-top: 2px solid silver;
-border-bottom: 2px solid silver;
-color: #4A4646;
-
+  padding: 80px 20%;
+  width: 60%;
+  background-color: #ffecec;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+  color: #4a4646;
 }
-#reg-successful h1{
-color: rgb(131, 131, 131);
-margin-bottom: 20px;
-font-size: large;
-    
-    
+#reg-successful h1 {
+  color: rgb(131, 131, 131);
+  margin-bottom: 20px;
+  font-size: large;
 }
-.registration{
-padding: 80px 20%;
-width: 60%;
-background-color:  #ffecec;
-border-top: 2px solid silver;
-border-bottom: 2px solid silver;
-color: #4A4646;
-font-size: large;
+.registration {
+  padding: 80px 20%;
+  width: 60%;
+  background-color: #ffecec;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+  color: #4a4646;
+  font-size: large;
 }
