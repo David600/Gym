@@ -25,7 +25,7 @@ function Registration() {
 
   function onHandleClick() {
     changeState();
-    window.location.assign("http://localhost:3000/second/");
+    alert("no backend available");
     //moving on second page
   }
 
