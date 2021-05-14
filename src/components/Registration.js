@@ -1,12 +1,12 @@
-import { useState } from "react";
 import Calendar from "react-calendar";
 import React from "react";
-import { Field, formValues, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import 'react-calendar/dist/Calendar.css';
 import { connect } from 'react-redux';
-
+import { getValues } from '../actions/index'
+import history from '../history';
   const Registration = (props) => {
-  const [date, onChange] = useState(new Date());
+  //const [date, onChange] = useState(new Date());
   
 
  
@@ -15,10 +15,9 @@ import { connect } from 'react-redux';
    const errors =  validate(formValues);
    console.log(errors);
     if(Object.keys(errors).length === 0){
-       alert("no backend available");
+      props.getValues(formValues);
+      history.push('/second');
     }
-    console.log(formValues);
- //here sould be sending data to server
   }
 
   function renderError({ error, touched }) {
@@ -61,7 +60,7 @@ import { connect } from 'react-redux';
         name = "email"
         />
         <label htmlFor="date">
-          Date <span>*</span>
+          Date 
         </label>{" "}
         <br />
         <Field  
@@ -96,12 +95,11 @@ const validate = formValues => {
 };
 
  const formWrapped = reduxForm({
-  // a unique name for the form
   form: 'registration',
   validate
 })(Registration)
 
 export default connect(
   null,
-  { Registration }
-) (formWrapped)
+  { getValues }
+) (formWrapped) 
