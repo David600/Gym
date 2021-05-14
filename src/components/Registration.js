@@ -5,7 +5,34 @@ import 'react-calendar/dist/Calendar.css';
 import { connect } from 'react-redux';
 import { getValues } from '../actions/index'
 import history from '../history';
-  const Registration = (props) => {
+  
+function renderError({ error, touched }) {
+  if (touched && error) {
+    return (
+      <div className="ui error message">
+        <div className="header">{error}</div>
+      </div>
+    );
+  }
+}
+
+
+const renderInput = () => ({ input, label, meta }) => {
+  const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
+  return (
+    <div className={className}>
+      <label>{label}</label>
+      <input {...input} autoComplete="off" />
+      {renderError(meta)}
+    </div>
+  );
+};
+
+const InputName = renderInput();
+const InputEmail = renderInput();
+const InputMessage = renderInput();
+
+const Registration = (props) => {
   //const [date, onChange] = useState(new Date());
   
 
@@ -20,27 +47,7 @@ import history from '../history';
     }
   }
 
-  function renderError({ error, touched }) {
-    if (touched && error) {
-      return (
-        <div className="ui error message">
-          <div className="header">{error}</div>
-        </div>
-      );
-    }
-  }
-  const { handleSubmit } = props;
-
- const renderInput = ({ input, label, meta }) => {
-    const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
-    return (
-      <div className={className}>
-        <label>{label}</label>
-        <input {...input} autoComplete="off" />
-        {renderError(meta)}
-      </div>
-    );
-  };
+ const { handleSubmit } = props;
 
   return (
     <div id = "contacts">
@@ -49,14 +56,14 @@ import history from '../history';
           Name <span>*</span>
         </label>
         <Field
-        component = {renderInput}
+        component = {InputName}
         name = "name"
         />
           <label htmlFor="email">
           E-mail<span>*</span>
         </label>
         <Field 
-        component = {renderInput}
+        component = {InputEmail}
         name = "email"
         />
         <label htmlFor="date">
@@ -69,7 +76,7 @@ import history from '../history';
         />
         <label htmlFor="message">Message</label> <br />
         <Field
-        component = {renderInput}
+        component = {InputMessage}
         name = "message"
         />
         
