@@ -1,132 +1,107 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import React from "react";
-import MyContext from "../context";
-import validator from 'validator'
+import { Field, formValues, reduxForm } from 'redux-form';
+import 'react-calendar/dist/Calendar.css';
+import { connect } from 'react-redux';
 
-function Registration() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const Registration = (props) => {
   const [date, onChange] = useState(new Date());
-  const [time, setTime] = useState("");
-  const [message, setMessage] = useState("");
-  const { state, setState } = useContext(MyContext);
-  const [emailDirty, setEmailDirty] = useState(false);
-  const [emailError, setEmailError] = useState( "Email can't be empty!");
-  const [nameDirty, setNameDirty] = useState (false);
-  const [nameError, setNameError] = useState( "Name can't be empty!");
+  
 
-  const data = [name, email, date, time, message];
+ 
 
-  function onSubmit(e) {
-    e.preventDefault();
-    //here sould be sending data to server
+  function onSubmit(formValues) {
+   const errors =  validate(formValues);
+   console.log(errors);
+    if(Object.keys(errors).length === 0){
+       alert("no backend available");
+    }
+    console.log(formValues);
+ //here sould be sending data to server
   }
 
-  function changeState() {
-    setState({ ...state, data });
-    //adding data to state
-  }
-
-  function onHandleClick() {
-    changeState();
-    alert("no backend available");
-    //moving on second page
-  }
-
-  function  blurHandler(e) {
-    switch(e.target.name){
-      case 'name': 
-      setNameDirty(true)
-      break
-      case 'email': 
-      setEmailDirty(true)
-      break
+  function renderError({ error, touched }) {
+    if (touched && error) {
+      return (
+        <div className="ui error message">
+          <div className="header">{error}</div>
+        </div>
+      );
     }
   }
-  function emailHandler(e) {
-    setEmail(e.target.value)
-    if (validator.isEmail(email)) {
-      setEmailError('Valid Email :)')
-    } else {
-      setEmailError('Enter valid Email!')
-    }
-    
-  }
+  const { handleSubmit } = props;
+
+ const renderInput = ({ input, label, meta }) => {
+    const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
+    return (
+      <div className={className}>
+        <label>{label}</label>
+        <input {...input} autoComplete="off" />
+        {renderError(meta)}
+      </div>
+    );
+  };
 
   return (
-    <div id="contacts">
-      <center>
-        <h3>Registration</h3>
-      </center>
-      <form id="form_input" onSubmit={onSubmit}>
-        <label htmlFor="name">
+    <div id = "contacts">
+       <form id="form_input" onSubmit={handleSubmit(onSubmit)} className="ui form error">
+       <label htmlFor="name">
           Name <span>*</span>
-        </label>{" "}
-        <br />
-        {(nameDirty && nameError) && <div style = {{color: "red"}}>{nameError}</div>}
-        <input
-          value={name}
-          onBlur = {(e) =>  blurHandler(e)}
-          onInput={(e) => setName(e.target.value)}
-          type="text"
-          placeholder="Enter your name"
-          name="name"
-          id="name"
-        />{" "}
-        <br />
-        <label htmlFor="email">
+        </label>
+        <Field
+        component = {renderInput}
+        name = "name"
+        />
+          <label htmlFor="email">
           E-mail<span>*</span>
-        </label>{" "}
-        <br />
-        {(emailDirty && emailError) && <div style = {{color: "red"}}>{emailError}</div>}
-        <input
-          type="email"
-          value={email}
-          onBlur = {(e) =>  blurHandler(e)}
-          onInput= {(e) => emailHandler(e)}
-
-          placeholder="Enter your E-mail"
-          name="email"
-          id="email"
-        />{" "}
-        <br />
+        </label>
+        <Field 
+        component = {renderInput}
+        name = "email"
+        />
         <label htmlFor="date">
           Date <span>*</span>
         </label>{" "}
         <br />
-        
-        <Calendar onChange={onChange} date={date} />
-        <br />
-        <label htmlFor="time">
-          Time <span>*</span>
-        </label>{" "}
-        <br />
-        <input
-          type="time"
-          placeholder="Enter time"
-          name="time"
-          id="time"
-          value={time}
-          onInput={(e) => setTime(e.target.value)}
+        <Field  
+        component = {Calendar}
+        name = "date"
         />
-        <br />
         <label htmlFor="message">Message</label> <br />
-        <textarea
-          value={message}
-          onInput={(e) => setMessage(e.target.value)}
-          placeholder="Enter your message"
-          name="message"
-          id="message"
-        ></textarea>{" "}
-        <br />
-        <button id="btn" type="submit" onClick={() => onHandleClick()}>
-          {" "}
-          Submit{" "}
+        <Field
+        component = {renderInput}
+        name = "message"
+        />
+        
+        <button className="ui button primary">
+          Submit
         </button>
       </form>
     </div>
   );
 }
+const validate = formValues => {
+  const errors = {};
 
-export default Registration;
+  if (!formValues.name) {
+    errors.name = 'You must enter a name ';
+  }
+
+  if (!formValues.email) {
+    errors.email = 'You must enter an email';
+  }
+
+  return errors;
+};
+
+ const formWrapped = reduxForm({
+  // a unique name for the form
+  form: 'registration',
+  validate
+})(Registration)
+
+export default connect(
+  null,
+  { Registration }
+) (formWrapped)
